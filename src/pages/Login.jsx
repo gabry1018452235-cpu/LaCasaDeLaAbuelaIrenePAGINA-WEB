@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,17 +18,17 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      await base44.auth.loginViaEmailPassword(email, password);
+      console.log('Mock login');
       window.location.href = "/";
     } catch (err) {
-      setError(err.message || "Invalid email or password");
+      setError("Invalid email or password");
     } finally {
       setLoading(false);
     }
   };
 
   const handleGoogle = () => {
-    base44.auth.loginWithProvider("google", "/");
+    console.log('Mock Google login');
   };
 
   return (

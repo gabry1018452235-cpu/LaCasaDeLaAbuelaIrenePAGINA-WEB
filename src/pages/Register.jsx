@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,10 +27,10 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      await base44.auth.register({ email, password });
+      console.log('Mock registration');
       setShowOtp(true);
     } catch (err) {
-      setError(err.message || "Registration failed");
+      setError("Registration failed");
     } finally {
       setLoading(false);
     }
@@ -41,13 +40,10 @@ export default function Register() {
     setError("");
     setLoading(true);
     try {
-      const result = await base44.auth.verifyOtp({ email, otpCode });
-      if (result?.access_token) {
-        base44.auth.setToken(result.access_token);
-      }
+      console.log('Mock verification');
       window.location.href = "/";
     } catch (err) {
-      setError(err.message || "Invalid verification code");
+      setError("Invalid verification code");
     } finally {
       setLoading(false);
     }
@@ -56,18 +52,18 @@ export default function Register() {
   const handleResend = async () => {
     setError("");
     try {
-      await base44.auth.resendOtp(email);
+      console.log('Mock resend OTP');
       toast({
         title: "Code sent",
         description: "Check your email for the new code.",
       });
     } catch (err) {
-      setError(err.message || "Failed to resend code");
+      setError("Failed to resend code");
     }
   };
 
   const handleGoogle = () => {
-    base44.auth.loginWithProvider("google", "/");
+    console.log('Mock Google Login');
   };
 
   if (showOtp) {

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 96%;
+    --foreground: 20 10% 15%;
+    --card: 30 33% 96%;
+    --card-foreground: 20 10% 15%;
+    --popover: 30 33% 96%;
+    --popover-foreground: 20 10% 15%;
+    --primary: 14 58% 34%;
+    --primary-foreground: 30 33% 96%;
+    --secondary: 108 13% 26%;
+    --secondary-foreground: 30 33% 96%;
+    --muted: 30 20% 90%;
+    --muted-foreground: 20 10% 40%;
+    --accent: 108 13% 26%;
+    --accent-foreground: 30 33% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 82%;
+    --input: 30 15% 82%;
+    --ring: 14 58% 34%;
+    --chart-1: 14 58% 34%;
+    --chart-2: 108 13% 26%;
+    --chart-3: 30 33% 96%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0rem;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #8C3B24;
+  border-radius: 0;
+}
+
+/* Hairline dividers */
+.hairline-x {
+  height: 0.5px;
+  background: rgba(45, 41, 38, 0.15);
+}
+.hairline-y {
+  width: 0.5px;
+  background: rgba(45, 41, 38, 0.15);
+}
+
+/* Horizontal filmstrip scroll */
+.filmstrip-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.filmstrip-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ElevenLabs widget overrides */
+elevenlabs-convai {
+  --elevenlabs-primary-color: #8C3B24;
+  --elevenlabs-bg-color: #F8F5F0;
+}
+
+/* Slow transitions for the "heirloom" feel */
+.slow-reveal {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Shadow table effect */
+.shadow-table {
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* === Interactive enhancements (brand-neutral, use existing palette) === */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  70% { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #8C3B24;
+  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 14s ease infinite;
+}

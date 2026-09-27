@@ -8,11 +8,13 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp
 import AuthLayout from "@/components/AuthLayout";
 import GoogleIcon from "@/components/GoogleIcon";
 import { toast } from "@/components/ui/use-toast";
+import LegalCheckbox from "@/components/ui/LegalCheckbox";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOtp, setShowOtp] = useState(false);
@@ -21,6 +23,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    if (!consent) {
+      setError("Debes aceptar los términos y la política de privacidad");
+      return;
+    }
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -195,7 +201,7 @@ export default function Register() {
         <div className="space-y-2">
           <Label htmlFor="confirm">Confirm Password</Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               id="confirm"
               type="password"
@@ -208,6 +214,7 @@ export default function Register() {
             />
           </div>
         </div>
+        <LegalCheckbox value={consent} onChange={setConsent} />
         <Button type="submit" className="w-full h-12 font-medium" disabled={loading}>
           {loading ? (
             <>

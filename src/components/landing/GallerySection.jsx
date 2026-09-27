@@ -5,18 +5,22 @@ const photos = [
   {
     src: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/c2142b408_WhatsAppImage2026-07-13at103627AM.jpg",
     caption: "Compañía que se queda contigo",
+    alt: "Interior acogedor de la Casa de la Abuela Irene con decoración rústica y luz natural",
   },
   {
     src: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/b7f6a8811_WhatsAppImage2026-07-13at103629AM2.jpg",
     caption: "Detalles que cuentan historias",
+    alt: "Detalle de decoración artesanal en madera y cerámica en la Casa de la Abuela Irene",
   },
   {
     src: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/50c9ee3cd_WhatsAppImage2026-07-13at103632AM.jpg",
     caption: "El desayuno de la abuela",
+    alt: "Desayuno típico cafetero servido en mesa de madera rústica",
   },
   {
     src: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/6c1812da0_WhatsAppImage2026-07-13at103628AM1.jpg",
     caption: "El jardín que respira contigo",
+    alt: "Vista panorámica del jardín verde y exuberante de la Casa de la Abuela Irene",
   },
 ];
 
@@ -71,7 +75,7 @@ export default function GallerySection() {
           <div className="shadow-table overflow-hidden aspect-[4/5] md:aspect-[16/10] bg-oak/5">
             <img
               src={p.src}
-              alt={p.caption}
+              alt={p.alt}
               className="w-full h-full object-cover"
               draggable={false}
             />

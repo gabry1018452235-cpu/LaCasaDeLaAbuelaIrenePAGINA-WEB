@@ -2,41 +2,47 @@ import React, { useState } from "react";
 
 // Fotos reales de huéspedes — género respetado en cada reseña
 const testimonials = [
-  {
-    quote: "Me encanto venir aca, el ambiente es tan tranquilo y acogedor no eligiria otro.",
-    author: "Camila Restrepo",
-    origin: "Pereira, Risaralda",
-    photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/6c8c8310f_WhatsAppImage2026-07-26at45944PM.jpg",
-  },
+    {
+      quote: "Me encanto venir aca, el ambiente es tan tranquilo y acogedor no eligiria otro.",
+      author: "Camila Restrepo",
+      origin: "Pereira, Risaralda",
+      photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/6c8c8310f_WhatsAppImage2026-07-26at45944PM.jpg",
+      alt: "Huésped Camila Restrepo disfrutando de su estadía",
+    },
   {
     quote: "La abuela es un amor, nos atendio re bien y el desayuno estaba buenisimo. 100% recomendado.",
     author: "Andrés Morales",
     origin: "Bogotá, Cundinamarca",
     photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/7d392b17e_WhatsAppImage2026-07-13at103631AM2.jpg",
+    alt: "Huésped Andrés Morales sonriendo en la Casa de la Abuela Irene",
   },
   {
     quote: "Nos tocaba descansar y fue la mejor decision. Los perros y gatos le dan un toque super familiar.",
     author: "Laura Giraldo",
     origin: "Medellín, Antioquia",
     photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/c930f3643_WhatsAppImage2026-07-26at45945PM2.jpg",
+    alt: "Huésped Laura Giraldo en la Casa de la Abuela Irene",
   },
   {
     quote: "Llegamos sin saber que esperar y nos fuimos con ganas de volver. Súper limpio y muy comodo.",
     author: "Santiago Torres",
     origin: "Cali, Valle del Cauca",
     photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/c77341b41_WhatsAppImage2026-07-26at45946PM1.jpg",
+    alt: "Huésped Santiago Torres disfrutando del entorno natural",
   },
   {
     quote: "Un lugar tranquilo lejos del ruido, uno se desconecta de verdad ahi. Gracias doña Irene.",
     author: "Mariana Vélez",
     origin: "Manizales, Caldas",
     photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/d242fca6d_WhatsAppImage2026-07-26at45949PM2.jpg",
+    alt: "Huésped Mariana Vélez en la Casa de la Abuela Irene",
   },
   {
     quote: "Buena atencion, rica comida y lindos paisajes. Para ir en familia o con amigos esta perfecto.",
     author: "Juan Pablo Herrera",
     origin: "Armenia, Quindío",
     photo: "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/6c8c8310f_WhatsAppImage2026-07-26at45944PM.jpg",
+    alt: "Huésped Juan Pablo Herrera en la Casa de la Abuela Irene",
   },
 ];
 
@@ -74,7 +80,7 @@ export default function TestimonialsSlider() {
           {/* Photo */}
           <div className="md:col-span-5">
             <div className="shadow-table overflow-hidden aspect-[4/5] rounded-3xl bg-bone/5">
-              <img src={t.photo} alt={t.author} className="w-full h-full object-cover" />
+              <img src={t.photo} alt={t.alt} className="w-full h-full object-cover" />
             </div>
           </div>
 

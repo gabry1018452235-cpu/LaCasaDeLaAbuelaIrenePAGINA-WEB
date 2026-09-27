@@ -4,8 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run seo:generate",
     "dev": "vite",
+    "prebuild": "npm run seo:generate",
     "build": "vite build",
+    "postbuild": "node scripts/prerender-seo-pages.mjs",
+    "seo:generate": "node scripts/generate-seo-assets.mjs",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p ./jsconfig.json",

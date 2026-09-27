@@ -34,7 +34,7 @@ export default function AttractionsSection({ attractionsVideo }) {
       >
         <img
           src="https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/68e128e5c_WhatsAppImage2026-07-13at103628AM1.jpg"
-          alt="Jardín de la Casa de La Abuela Irene"
+          alt="Paisaje natural del jardín y alrededores de la Casa de la Abuela Irene en Calarcá"
           className="w-full h-64 md:h-96 object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bone via-transparent to-transparent" />

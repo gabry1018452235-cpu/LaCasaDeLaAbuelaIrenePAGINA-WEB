@@ -1,4 +1,5 @@
 import React from "react";
+import SeoMetadata from "@/components/SeoMetadata";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
 import BookingBar from "@/components/landing/BookingBar";
@@ -29,6 +30,7 @@ const VIDEOS = {
 export default function Home() {
   return (
     <div className="bg-bone min-h-screen">
+      <SeoMetadata path="/" />
       <Navbar />
       <HeroSection heroVideo={VIDEOS.hero} />
       <BookingBar />

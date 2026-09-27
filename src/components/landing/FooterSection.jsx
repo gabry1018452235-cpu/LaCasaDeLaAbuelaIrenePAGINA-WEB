@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FOOTER_WA_URL =
   "https://wa.me/573207016292?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20en%20Casa%20de%20La%20Abuela%20Irene";
@@ -82,9 +83,24 @@ const handleReserve = (e) => {
         {/* Bottom bar */}
         <div className="hairline-x bg-bone/10 mt-16 mb-8" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-heading text-sm text-bone/30 tracking-wide">
-            Casa de La Abuela Irene
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="font-heading text-sm text-bone/30 tracking-wide">
+              © 2026 Casa de La Abuela Irene
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-[10px] uppercase tracking-widest text-bone/20">
+              <Link to="/privacidad" className="hover:text-bone/50 transition-colors">Privacidad</Link>
+              <Link to="/terminos" className="hover:text-bone/50 transition-colors">Términos</Link>
+              <Link to="/cookies" className="hover:text-bone/50 transition-colors">Cookies</Link>
+              <Link to="/reembolsos" className="hover:text-bone/50 transition-colors">Reembolsos</Link>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+                className="hover:text-bone/50 transition-colors"
+              >
+                Configurar cookies
+              </button>
+            </div>
+          </div>
           <p className="text-xs text-bone/20 uppercase tracking-[0.2em]">
             Calarcá · Quindío · Colombia
           </p>

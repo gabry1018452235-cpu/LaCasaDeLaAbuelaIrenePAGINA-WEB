@@ -1,11 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Volume2, VolumeX, Play, Pause, RotateCcw, RotateCw } from "lucide-react";
 import WeatherWidget from "@/components/landing/WeatherWidget";
+import logoSrc from "../../../Logo.png";
 
 export default function HeroSection({ heroVideo }) {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
+  const [videoLoading, setVideoLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setVideoLoading(false), 7000);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -56,7 +63,23 @@ export default function HeroSection({ heroVideo }) {
                 playsInline
                 preload="auto"
                 className="w-full aspect-[9/16] object-cover"
+                onCanPlay={() => setVideoLoading(false)}
               />
+
+              {videoLoading && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 bg-bone px-6 text-center"
+                >
+                  <img
+                    src={logoSrc}
+                    alt="Casa de la Abuela Irene"
+                    className="w-32 max-w-[45%] object-contain"
+                  />
+                  <div className="h-8 w-8 animate-spin rounded-full border-2 border-terracotta/20 border-t-terracotta" />
+                </div>
+              )}
 
               {/* Controles estéticos */}
               <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-2 px-3 py-3 bg-gradient-to-t from-oak/70 to-transparent">

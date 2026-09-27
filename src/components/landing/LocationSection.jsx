@@ -1,6 +1,9 @@
 import React from "react";
+import { useCookieConsent } from "@/lib/CookieConsentContext";
 
 export default function LocationSection() {
+  const { consent } = useCookieConsent();
+
   return (
     <section id="ubicacion" className="py-16 md:py-32 bg-bone">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
@@ -12,15 +15,29 @@ export default function LocationSection() {
           {/* Map */}
           <div className="lg:col-span-7 order-2 lg:order-1">
             <div className="shadow-table overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.336914423476!2d-75.6304803!3d4.5332128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38f57352d58f2d%3A0x124aab8b011cefdd!2sCasa%20de%20La%20Abuela%20Irene!5e0!3m2!1ses-419!2sco!4v1785102001246!5m2!1ses-419!2sco"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="Ubicación Casa de La Abuela Irene"
-                className="w-full h-[320px] md:h-[450px]"
-              />
+              {consent?.externalServices ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.336914423476!2d-75.6304803!3d4.5332128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38f57352d58f2d%3A0x124aab8b011cefdd!2sCasa%20de%20La%20Abuela%20Irene!5e0!3m2!1ses-419!2sco!4v1785102001246!5m2!1ses-419!2sco"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Ubicación Casa de La Abuela Irene"
+                  className="w-full h-[320px] md:h-[450px]"
+                />
+              ) : (
+                <div className="flex h-[320px] flex-col items-center justify-center gap-3 bg-oak/5 px-6 text-center md:h-[450px]">
+                  <p className="font-heading text-2xl text-oak">Mapa de ubicación</p>
+                  <p className="max-w-sm text-sm text-oak/70">Activa los servicios externos para cargar Google Maps.</p>
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+                    className="border border-oak/30 px-4 py-2 text-sm text-oak hover:bg-oak hover:text-bone"
+                  >
+                    Gestionar preferencias
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 

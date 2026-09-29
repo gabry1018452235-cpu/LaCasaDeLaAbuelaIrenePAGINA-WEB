@@ -1,4 +1,4 @@
-export const SITE_URL = "https://la-casa-de-la-abuela-irene.com";
+export const SITE_URL = "https://www.la-casa-de-la-abuela-irene-hospedaje.com";
 
 export const DEFAULT_OG_IMAGE =
   "https://media.base44.com/images/public/6a4afbac50ba66c95d50b45e/68e128e5c_WhatsAppImage2026-07-13at103628AM1.jpg";

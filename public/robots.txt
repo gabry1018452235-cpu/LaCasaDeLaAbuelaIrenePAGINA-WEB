@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://la-casa-de-la-abuela-irene.com/sitemap.xml
+Sitemap: https://www.la-casa-de-la-abuela-irene-hospedaje.com/sitemap.xml

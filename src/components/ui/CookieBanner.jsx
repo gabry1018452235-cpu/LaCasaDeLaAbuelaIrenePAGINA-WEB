@@ -31,18 +31,7 @@ const CookieBanner = () => {
   const rejectOptional = () => saveConsent({ analytics: false, externalServices: false });
   const acceptAll = () => saveConsent({ analytics: true, externalServices: true });
 
-  if (!isVisible) {
-    return (
-      <button
-        type="button"
-        onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
-        aria-label="Configurar preferencias de cookies"
-        className="fixed right-4 top-[calc(50%+38px)] z-[9997] border border-oak/30 bg-bone px-3 py-2 text-xs text-oak shadow-table hover:bg-oak hover:text-bone"
-      >
-        Cookies
-      </button>
-    );
-  }
+  if (!isVisible) return null;
 
   return (
     <aside className="fixed inset-x-0 bottom-0 z-[10000] border-t border-bone/20 bg-oak p-4 text-bone shadow-2xl" aria-label="Consentimiento de cookies">

@@ -1,10 +1,13 @@
-const WA_URL =
-  "https://wa.me/573207016292?text=Hola%20Casa%20Irene%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20hospedaje.";
+import { createWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+
+const WA_MESSAGE =
+  "Hola Casa Irene, me gustaría más información sobre el hospedaje.";
+const WA_URL = createWhatsAppUrl(WA_MESSAGE);
 
 export default function WhatsAppFloat() {
 const handleClick = (e) => {
     e.preventDefault();
-    window.open(WA_URL, "_blank", "noopener,noreferrer");
+    openWhatsApp(WA_MESSAGE);
   };
 
   return (

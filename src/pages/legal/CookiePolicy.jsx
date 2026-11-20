@@ -44,7 +44,7 @@ const CookiePolicy = () => {
           <section>
             <h2 className="text-2xl font-semibold text-moss mb-3">4. Cómo funciona el consentimiento</h2>
             <p>Antes de recibir una elección, el sitio no carga Google Analytics, Google Maps, Google Fonts ni el asistente de voz de ElevenLabs. El banner permite “Aceptar todas”, “Rechazar opcionales” o “Gestionar” las categorías. Las tecnologías necesarias no pueden desactivarse porque guardan la preferencia y permiten operar el sitio. Las analíticas y servicios externos están desactivados por defecto.</p>
-            <p>La opción “Rechazar opcionales” guarda la elección sin habilitar esas categorías. En “Gestionar”, la persona puede activar una o ambas categorías y guardar su selección. Las preferencias pueden cambiarse posteriormente desde el botón “Cookies” flotante, desde “Configurar cookies” en el pie de página o desde esta política; retirar el permiso detiene las cargas opcionales posteriores y desactiva Google Analytics.</p>
+            <p>La opción “Rechazar opcionales” guarda la elección sin habilitar esas categorías. En “Gestionar”, la persona puede activar una o ambas categorías y guardar su selección. Las preferencias pueden cambiarse posteriormente desde “Configurar cookies” en el pie de página o desde esta política; retirar el permiso detiene las cargas opcionales posteriores y desactiva Google Analytics.</p>
           </section>
 
           <section>

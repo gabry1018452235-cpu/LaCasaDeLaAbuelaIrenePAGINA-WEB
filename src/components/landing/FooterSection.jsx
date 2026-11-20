@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { openWhatsApp, createWhatsAppUrl } from "@/lib/whatsapp";
 
-const FOOTER_WA_URL =
-  "https://wa.me/573207016292?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20en%20Casa%20de%20La%20Abuela%20Irene";
+const FOOTER_WA_MESSAGE =
+  "Hola, me gustaría reservar en Casa de La Abuela Irene";
+const FOOTER_WA_URL = createWhatsAppUrl(FOOTER_WA_MESSAGE);
 
 export default function FooterSection() {
 const handleReserve = (e) => {
   e.preventDefault();
-  window.open(FOOTER_WA_URL, "_blank", "noopener,noreferrer");
+  openWhatsApp(FOOTER_WA_MESSAGE);
 };
   return (
     <footer id="reservar" className="bg-oak text-bone py-24 md:py-40">

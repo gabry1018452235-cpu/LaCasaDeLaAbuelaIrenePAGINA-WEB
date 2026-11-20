@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 export default function BookingBar() {
   const [checkIn, setCheckIn] = useState("");
@@ -10,11 +11,7 @@ export default function BookingBar() {
     const salida = checkOut || "[Fecha de salida]";
     const msg = `Hola Casa Irene, me gustaría consultar la disponibilidad para ingresar el ${entrada}, salir el ${salida} para un total de ${guests} huéspedes.`;
     
-    window.open(
-      `https://wa.me/573207016292?text=${encodeURIComponent(msg)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    openWhatsApp(msg);
   };
 
   return (

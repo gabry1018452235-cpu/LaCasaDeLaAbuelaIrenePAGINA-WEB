@@ -11,6 +11,7 @@ import CookiePolicy from './pages/legal/CookiePolicy';
 import RefundPolicy from './pages/legal/RefundPolicy';
 import CookieConsentProvider from './lib/CookieConsentContext';
 import CookieBanner from './components/ui/CookieBanner';
+import WhatsAppFallback from './components/ui/WhatsAppFallback';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         </Router>
         <Toaster />
         <CookieBanner />
+        <WhatsAppFallback />
       </QueryClientProvider>
     </CookieConsentProvider>
   );
